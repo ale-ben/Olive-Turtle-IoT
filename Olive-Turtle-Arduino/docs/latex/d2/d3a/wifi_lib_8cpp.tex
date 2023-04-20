@@ -1,0 +1,77 @@
+\hypertarget{wifi_lib_8cpp}{}\doxysection{src/utilities/src/wifi\+Lib.cpp File Reference}
+\label{wifi_lib_8cpp}\index{src/utilities/src/wifiLib.cpp@{src/utilities/src/wifiLib.cpp}}
+{\ttfamily \#include \char`\"{}../wifi\+Lib.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../logger\+Lib.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$Wi\+Fi\+Manager.\+h$>$}\newline
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{wifi_lib_8cpp_adb7204276108dcf00300c2d1b62bf985}{setup\+Wifi}} (bool restart\+On\+Fail)
+\begin{DoxyCompactList}\small\item\em Setup Wi\+Fi connection. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{wifi_lib_8cpp_a3232de1135df3cc6d6386311b4338e33}{get\+Connection\+Status}} (bool reconnect)
+\begin{DoxyCompactList}\small\item\em Get the Connection Status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{wifi_lib_8cpp_a8afdaf6df934dd5aa47343293903c670}\label{wifi_lib_8cpp_a8afdaf6df934dd5aa47343293903c670}} 
+Wi\+Fi\+Manager {\bfseries wifi\+Manager}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Benetton Alessandro (\href{mailto:aleben98@gmail.com}{\texttt{ aleben98@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/03-\/15
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{wifi_lib_8cpp_a3232de1135df3cc6d6386311b4338e33}\label{wifi_lib_8cpp_a3232de1135df3cc6d6386311b4338e33}} 
+\index{wifiLib.cpp@{wifiLib.cpp}!getConnectionStatus@{getConnectionStatus}}
+\index{getConnectionStatus@{getConnectionStatus}!wifiLib.cpp@{wifiLib.cpp}}
+\doxysubsubsection{\texorpdfstring{getConnectionStatus()}{getConnectionStatus()}}
+{\footnotesize\ttfamily bool get\+Connection\+Status (\begin{DoxyParamCaption}\item[{bool}]{reconnect = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Get the Connection Status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reconnect} & Whether to reconnect if the connection is lost \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the connection is successful 
+
+false If the connection fails 
+\end{DoxyReturn}
+\mbox{\Hypertarget{wifi_lib_8cpp_adb7204276108dcf00300c2d1b62bf985}\label{wifi_lib_8cpp_adb7204276108dcf00300c2d1b62bf985}} 
+\index{wifiLib.cpp@{wifiLib.cpp}!setupWifi@{setupWifi}}
+\index{setupWifi@{setupWifi}!wifiLib.cpp@{wifiLib.cpp}}
+\doxysubsubsection{\texorpdfstring{setupWifi()}{setupWifi()}}
+{\footnotesize\ttfamily bool setup\+Wifi (\begin{DoxyParamCaption}\item[{bool}]{restart\+On\+Fail = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Setup Wi\+Fi connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em restart\+On\+Fail} & Whether to restart the ESP if the connection fails \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the connection is successful 
+
+false If the connection fails 
+\end{DoxyReturn}

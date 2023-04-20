@@ -1,0 +1,62 @@
+\hypertarget{time_lib_8hpp}{}\doxysection{src/utilities/time\+Lib.hpp File Reference}
+\label{time_lib_8hpp}\index{src/utilities/timeLib.hpp@{src/utilities/timeLib.hpp}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{time_lib_8hpp_ae71070e1b46ba635d75b12ef83f08dce}{TIMESTAMP\+\_\+\+LENGTH}}~20
+\begin{DoxyCompactList}\small\item\em Length of the timestamp string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{time_lib_8hpp_aa5843fefc47daa4508b1cc57b81995e7}{get\+Timestamp}} ()
+\begin{DoxyCompactList}\small\item\em Save the timestamp string in the timestamp parameter. Timestamp string is defined as\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Benetton Alessandro (\href{mailto:aleben98@gmail.com}{\texttt{ aleben98@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/03-\/15
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{time_lib_8hpp_ae71070e1b46ba635d75b12ef83f08dce}\label{time_lib_8hpp_ae71070e1b46ba635d75b12ef83f08dce}} 
+\index{timeLib.hpp@{timeLib.hpp}!TIMESTAMP\_LENGTH@{TIMESTAMP\_LENGTH}}
+\index{TIMESTAMP\_LENGTH@{TIMESTAMP\_LENGTH}!timeLib.hpp@{timeLib.hpp}}
+\doxysubsubsection{\texorpdfstring{TIMESTAMP\_LENGTH}{TIMESTAMP\_LENGTH}}
+{\footnotesize\ttfamily \#define TIMESTAMP\+\_\+\+LENGTH~20}
+
+
+
+Length of the timestamp string. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{time_lib_8hpp_aa5843fefc47daa4508b1cc57b81995e7}\label{time_lib_8hpp_aa5843fefc47daa4508b1cc57b81995e7}} 
+\index{timeLib.hpp@{timeLib.hpp}!getTimestamp@{getTimestamp}}
+\index{getTimestamp@{getTimestamp}!timeLib.hpp@{timeLib.hpp}}
+\doxysubsubsection{\texorpdfstring{getTimestamp()}{getTimestamp()}}
+{\footnotesize\ttfamily char $\ast$ get\+Timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Save the timestamp string in the timestamp parameter. Timestamp string is defined as\+: 
+
+
+\begin{DoxyItemize}
+\item \char`\"{}\mbox{[}\+YY-\/\+MM-\/\+DD\+\_\+\+HH\+:\+MM\+:\+SS\mbox{]}\textbackslash{}0\char`\"{} in normal conditions
+\item \char`\"{}\mbox{[}\+YY-\/\+MM-\/\+DD\+\_\+\+HH\+:\+MM\+:\+SS\mbox{]}\+E\textbackslash{}0\char`\"{} where E is a char that indicates the error
+\item \char`\"{}\mbox{[}\+TIME ND\mbox{]}\textbackslash{}0\char`\"{} if time is not set \begin{DoxyReturn}{Returns}
+char$\ast$ Array that will contain the timestamp string. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}

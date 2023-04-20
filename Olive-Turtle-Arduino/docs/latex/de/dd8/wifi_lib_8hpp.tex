@@ -1,0 +1,67 @@
+\hypertarget{wifi_lib_8hpp}{}\doxysection{src/utilities/wifi\+Lib.hpp File Reference}
+\label{wifi_lib_8hpp}\index{src/utilities/wifiLib.hpp@{src/utilities/wifiLib.hpp}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{wifi_lib_8hpp_a217270d447df11773c67f9b4d0969470}{setup\+Wifi}} (bool restart\+On\+Fail=true)
+\begin{DoxyCompactList}\small\item\em Setup Wi\+Fi connection. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{wifi_lib_8hpp_a2252884184639125af4e0487c80b0b31}{get\+Connection\+Status}} (bool reconnect=false)
+\begin{DoxyCompactList}\small\item\em Get the Connection Status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Benetton Alessandro (\href{mailto:aleben98@gmail.com}{\texttt{ aleben98@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/03-\/15
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{wifi_lib_8hpp_a2252884184639125af4e0487c80b0b31}\label{wifi_lib_8hpp_a2252884184639125af4e0487c80b0b31}} 
+\index{wifiLib.hpp@{wifiLib.hpp}!getConnectionStatus@{getConnectionStatus}}
+\index{getConnectionStatus@{getConnectionStatus}!wifiLib.hpp@{wifiLib.hpp}}
+\doxysubsubsection{\texorpdfstring{getConnectionStatus()}{getConnectionStatus()}}
+{\footnotesize\ttfamily bool get\+Connection\+Status (\begin{DoxyParamCaption}\item[{bool}]{reconnect = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Get the Connection Status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reconnect} & Whether to reconnect if the connection is lost \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the connection is successful 
+
+false If the connection fails 
+\end{DoxyReturn}
+\mbox{\Hypertarget{wifi_lib_8hpp_a217270d447df11773c67f9b4d0969470}\label{wifi_lib_8hpp_a217270d447df11773c67f9b4d0969470}} 
+\index{wifiLib.hpp@{wifiLib.hpp}!setupWifi@{setupWifi}}
+\index{setupWifi@{setupWifi}!wifiLib.hpp@{wifiLib.hpp}}
+\doxysubsubsection{\texorpdfstring{setupWifi()}{setupWifi()}}
+{\footnotesize\ttfamily bool setup\+Wifi (\begin{DoxyParamCaption}\item[{bool}]{restart\+On\+Fail = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Setup Wi\+Fi connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em restart\+On\+Fail} & Whether to restart the ESP if the connection fails \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the connection is successful 
+
+false If the connection fails 
+\end{DoxyReturn}
