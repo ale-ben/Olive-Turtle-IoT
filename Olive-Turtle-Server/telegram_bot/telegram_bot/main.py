@@ -1,6 +1,7 @@
 import configuration
 import logging
-from telegram import Update
+import json
+from telegram import Update, MenuButtonCommands, Chat
 from telegram.ext import (
 	filters,
 	MessageHandler,
@@ -13,13 +14,20 @@ logging.basicConfig(
 	format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
 	level=logging.INFO)
 
+async def authenticate(update: Update, context: ContextTypes.DEFAULT_TYPE):
+	msg = f"Access denied. Please either authorize user {update.effective_user.id} or chat {update.effective_chat.id}"
+	await context.bot.send_message(chat_id=update.effective_chat.id,
+								   text=msg)
+	return False
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-	await context.bot.send_message(chat_id=update.effective_chat.id,
+	if await authenticate(update, context):
+		await context.bot.send_message(chat_id=update.effective_chat.id,
 								   text="I'm a bot, please talk to me!")
 
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
+	await update.effective_chat.set_menu_button(menu_button=MenuButtonCommands())
 	await context.bot.send_message(chat_id=update.effective_chat.id,
 								   text=update.message.text)
 
@@ -34,8 +42,10 @@ async def unknown(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 if __name__ == "__main__":
-	application = ApplicationBuilder().token(
-		configuration.TELEGRAM_API_KEY).build()
+	application = ApplicationBuilder().token(configuration.TELEGRAM_API_KEY).build()
+
+	#application.bot.set_chat_menu_button(menu_button=MenuButtonCommands())
+	application.bot.set_chat_menu_button()
 
 	start_handler = CommandHandler("start", start)
 	application.add_handler(start_handler)
