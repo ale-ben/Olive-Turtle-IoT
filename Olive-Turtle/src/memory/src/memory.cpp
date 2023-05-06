@@ -21,24 +21,24 @@
 #define FORMAT_LITTLEFS_IF_FAILED true
 
 void createDir(const char * path){
-	logDebugf("Creating Dir: %s\n", path);
-	if(LittleFS.mkdir(path)) logDebug("Dir created");
-	else logWarning("mkdir failed");
+	logDebugf("MEM", "Creating Dir: %s\n", path);
+	if(LittleFS.mkdir(path)) logDebug("MEM", "Dir created");
+	else logWarning("MEM", "mkdir failed");
 
 }
 
 void removeDir(const char * path){
-	logDebugf("Removing Dir: %s\n", path);
-	if(LittleFS.rmdir(path)) logDebug("Dir removed");
-	else logWarning("rmdir failed");
+	logDebugf("MEM", "Removing Dir: %s\n", path);
+	if(LittleFS.rmdir(path)) logDebug("MEM", "Dir removed");
+	else logWarning("MEM", "rmdir failed");
 
 }
 
 const char * readFile(const char * path){
-	logDebugf("Reading file: %s\n", path);
+	logDebugf("MEM", "Reading file: %s\n", path);
 	File file = LittleFS.open(path);
 	if(!file || file.isDirectory()) {
-		logWarning("Failed to open file for reading");
+		logWarning("MEM", "Failed to open file for reading");
 		return NULL;
 	}
 
@@ -47,39 +47,39 @@ const char * readFile(const char * path){
 }
 
 void writeFile(const char * path, const char * message){
-	logDebugf("Writing file: %s\n", path);
+	logDebugf("MEM", "Writing file: %s\n", path);
 
 	File file = LittleFS.open(path, FILE_WRITE);
 	if(!file) {
-		logWarning("Failed to open file for writing");
+		logWarning("MEM", "Failed to open file for writing");
 		return;
 	}
 
-	if(file.print(message)) logDebug("File written");
-	else logWarning("Write failed");
+	if(file.print(message)) logDebug("MEM", "File written");
+	else logWarning("MEM", "Write failed");
 
 	file.close();
 }
 
 void appendFile(const char * path, const char * message){
-	logDebugf("Appending to file: %s\n", path);
+	logDebugf("MEM", "Appending to file: %s\n", path);
 
 	File file = LittleFS.open(path, FILE_APPEND);
 	if(!file) {
-		logWarning("Failed to open file for appending");
+		logWarning("MEM", "Failed to open file for appending");
 		return;
 	}
-	if(file.print(message)) logDebug("- message appended");
-	else logWarning("- append failed");
+	if(file.print(message)) logDebug("MEM", "- message appended");
+	else logWarning("MEM", "- append failed");
 
 	file.close();
 }
 
 void deleteFile(const char * path){
-	logDebugf("Deleting file: %s\n", path);
+	logDebugf("MEM", "Deleting file: %s\n", path);
 	
-	if(LittleFS.remove(path)) logDebug("- file deleted");
-	else logWarning("- delete failed");
+	if(LittleFS.remove(path)) logDebug("MEM", "- file deleted");
+	else logWarning("MEM", "- delete failed");
 }
 
 bool pathExists(const char * path){
@@ -88,7 +88,7 @@ bool pathExists(const char * path){
 
 void memoryInit(){
 	if(!LittleFS.begin(FORMAT_LITTLEFS_IF_FAILED)) {
-		logWarning("LittleFS Mount Failed");
+		logWarning("MEM", "LittleFS Mount Failed");
 		return;
 	}
 }
