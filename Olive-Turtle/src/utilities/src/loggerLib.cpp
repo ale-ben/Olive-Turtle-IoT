@@ -12,58 +12,100 @@
 
 #include "../timeLib.hpp"
 #include "../loggerLib.hpp"
+#include "../stringConverter.hpp"
 
 #include <Arduino.h>
 
-void logMessage(const char *message, const char* level) {
-	const int msgLen = strlen(message);
-	const int levelLen = strlen(level);
+#define INFO "I"
+#define ERROR "E"
+#define WARNING "W"
+#define DEBUG "D"
+#define VERBOSE "V"
 
+void logMessagef(const char* fmt, ...){
+	va_list arg;
+	va_start(arg, fmt);
+	char* message = varargToCharArr(fmt, arg);
+	va_end(arg);
+
+	Serial.print(message);
+	free(message);
+}
+
+void logMessage(const char* level, const char *message) {
 	// Get timestamp
-	char* timestamp;
+	char* timestamp = NULL;
 	#ifdef TIMELIB_H
 	timestamp = getTimestamp();
-	#else
-	timestamp = (char*)malloc(1);
-	strcpy(timestamp, "\0");
-	#endif
-
-	const int timestampLen = strlen(timestamp);
-
-	// Allocate memory for the message
-	char* logMessage = (char*)malloc((msgLen + levelLen + timestampLen + 2) * sizeof(char));
-
-	// Build the message as follows: [timestamp][level] [message]\0
-	strcpy(logMessage, timestamp);
-	strcat(logMessage, level);
-	strcat(logMessage, " ");
-	strcat(logMessage, message);
-	strcat(logMessage, "\n\0");
-
-	// Print the message
-	Serial.print(logMessage);
-
+	logMessagef("[%s] [%s] %s\n", timestamp, level, message);
 	// Free memory
 	free(timestamp);
-	free(logMessage);
+	#else
+	logMessage("[%s] %s\n", level, message);
+	#endif
 }
 
 void logInfo(const char *message) {
-	logMessage(message, "[I]");
+	logMessage(INFO, message);
+}
+
+void logInfof(const char *fmt, ...) {
+	va_list arg;
+	va_start(arg, fmt);
+	char* message = varargToCharArr(fmt, arg);
+	va_end(arg);
+	logMessage(INFO, message);
+	free(message);
 }
 
 void logError(const char *message){
-	logMessage(message, "[E]");
+	logMessage(ERROR, message);
+}
+
+void logErrorf(const char *fmt, ...) {
+	va_list arg;
+	va_start(arg, fmt);
+	char* message = varargToCharArr(fmt, arg);
+	va_end(arg);
+	logMessage(ERROR, message);
+	free(message);
 }
 
 void logWarning(const char *message){
-	logMessage(message, "[W]");
+	logMessage(WARNING, message);
+}
+
+void logWarningf(const char *fmt, ...) {
+	va_list arg;
+	va_start(arg, fmt);
+	char* message = varargToCharArr(fmt, arg);
+	va_end(arg);
+	logMessage(INFO, message);
+	free(message);
 }
 
 void logDebug(const char *message){
-	logMessage(message, "[D]");
+	logMessage(DEBUG, message);
+}
+
+void logDebugf(const char *fmt, ...) {
+	va_list arg;
+	va_start(arg, fmt);
+	char* message = varargToCharArr(fmt, arg);
+	va_end(arg);
+	logMessage(DEBUG, message);
+	free(message);
 }
 
 void logVerbose(const char *message){
-	logMessage(message, "[V]");
+	logMessage(VERBOSE, message);
+}
+
+void logVerbosef(const char *fmt, ...) {
+	va_list arg;
+	va_start(arg, fmt);
+	char* message = varargToCharArr(fmt, arg);
+	va_end(arg);
+	logMessage(VERBOSE, message);
+	free(message);
 }

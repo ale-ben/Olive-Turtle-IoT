@@ -23,7 +23,7 @@
  * - "[YY-MM-DD_HH:MM:SS]\0" in normal conditions
  * - "[YY-MM-DD_HH:MM:SS]E\0" where E is a char that indicates the error
  * - "[TIME ND]\0" if time is not set
- * @return char* Array that will contain the timestamp string.
+ * @return char* Array that will contain the timestamp string. MUST be freed after use.
  */
 char* getTimestamp();
 #endif
