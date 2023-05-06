@@ -62,3 +62,4 @@ Temporary Items
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,platformio,macos
 /Olive-Turtle/docs
+/Olive-Turtle/.vscode
